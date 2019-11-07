@@ -1,0 +1,99 @@
+.calendar {
+  $animation-duration: .5s;
+  $grid-gap: 10px;
+  $breakpoint-sm: 426px;
+
+  @keyframes scaleIn {
+    0% {
+      transform: scale(0);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  & {
+    width: 100%;
+    max-width: 768px;
+    margin: auto;
+    position: relative;
+    font-size: 1rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  }
+
+  &__title {
+    user-select: none;
+    color: #555;
+    font-size: 2em;
+    font-weight: 700;
+    text-align: center;
+    padding: 10px;
+
+    @media (min-width: $breakpoint-sm) {
+      padding: 10px 56px;
+    }
+  }
+
+  &__body {
+    display: flex;
+    align-items: center;
+  }
+
+  &__months-wrapper {
+    flex-grow: 1;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__month {
+    animation: scaleIn ($animation-duration * 1.5) both;
+    cursor: pointer;
+    font-size: 1.2em;
+    color: #fff;
+    flex-shrink: 0;
+    text-align: center;
+    line-height: 5em;
+    border-radius: 4px;
+    width: calc((100% - #{$grid-gap} * 3) / 3);
+    margin: calc(#{$grid-gap} / 2);
+    box-shadow: 0 0 0 0 #555555;
+
+    @media (min-width: $breakpoint-sm) {
+      width: calc((100% - #{$grid-gap} * 4) / 4);
+    }
+  }
+
+  &__btn {
+    cursor: pointer;
+
+    &--back,
+    &--arrow {
+      transition-duration: $animation-duration;
+      fill: grey;
+
+      &:hover {
+        fill: greenyellow;
+      }
+    }
+
+    &--back {
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 15px;
+
+      @media (min-width: $breakpoint-sm) {
+        padding: 25px;
+      }
+    }
+
+    &--arrow {
+      padding: 10px;
+
+      @media (min-width: $breakpoint-sm) {
+        padding: 20px;
+      }
+    }
+  }
+}
