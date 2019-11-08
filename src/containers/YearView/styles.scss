@@ -1,4 +1,4 @@
-.calendar {
+.year-view {
   $animation-duration: .5s;
   $grid-gap: 10px;
   $breakpoint-sm: 426px;
@@ -47,8 +47,9 @@
   }
 
   &__month {
-    animation: scaleIn ($animation-duration * 1.5) both;
+    animation: scaleIn $animation-duration both;
     cursor: pointer;
+    user-select: none;
     font-size: 1.2em;
     color: #fff;
     flex-shrink: 0;
@@ -66,6 +67,7 @@
 
   &__btn {
     cursor: pointer;
+    user-select: none;
 
     &--back,
     &--arrow {

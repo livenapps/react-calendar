@@ -1,17 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Calendar from './components/Calendar';
+import {createStore} from 'redux';
+import {Provider} from 'react-redux';
+
 import * as serviceWorker from './serviceWorker';
-const date = '02.29.2020'; // month.day.year // not required
+import reducers from './reducers';
+import App from './components/App';
+import './components/App/reset.scss';
+
+const store = createStore(reducers);
 
 ReactDOM.render(
-    <Calendar
-        date={date}
-        onChangeDay={''}
-        onChangeMonth={''}
-        onChangeYear={''}
-        onChange={''}
-    />,
+    <Provider store={store}>
+        <App
+            date={''}
+            onChangeDay={''}
+            onChangeMonth={''}
+            onChangeYear={''}
+            onChange={''}
+        />
+    </Provider>,
     document.getElementById('react-calendar'));
 
 serviceWorker.unregister();
