@@ -126,13 +126,10 @@ class YearView extends React.Component {
         } else if (Math.abs(endX - startX) > this.touchMinSwipe) {
             this.props.prevYear(this.props.year);
         }
-
-        // this.touchCoordinates.startX = null;
-        // this.touchCoordinates.endX = null;
-        console.log(this.touchCoordinates);
     }
 
     render() {
+        console.log(this.props);
         return <section className={`${this.rootClass}`}
                         onTouchStart={this.onTouchStart}
                         onTouchMove={this.onTouchMove}
@@ -146,13 +143,15 @@ class YearView extends React.Component {
                 <ArrowLeft
                     className={`${this.rootClass}__btn ${this.rootClass}__btn--arrow ${this.rootClass}__btn--arrow-left`}
                     onClick={() => {
-                        this.props.prevYear(this.props.year)
+                        this.props.prevYear(this.props.year);
                     }}
                 />
                 <div className={`${this.rootClass}__months-wrapper`}>
                     {month.map((el, i) =>
                         <div key={el.name.short} className={`${this.rootClass}__month`} title={el.name.full}
-                             style={{backgroundColor: el.color, animationDelay: `${.03 * i}s`}}> {el.name.short} </div>
+                             style={{backgroundColor: el.color, animationDelay: `${.03 * i}s`}}
+                             onClick={()=>this.props.setMonth(i)}
+                        > {el.name.short} </div>
                     )}
                 </div>
                 <ArrowRight
@@ -177,6 +176,7 @@ function mapDispatchToProps(dispatch) {
     return {
         prevYear: (year) => dispatch(setYear(year - 1)),
         nextYear: (year) => dispatch(setYear(year + 1)),
+        setMonth: (month) => {dispatch(setMonth(month))},
     };
 }
 

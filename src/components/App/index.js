@@ -4,7 +4,7 @@ import MonthView from "../MonthView";
 import {connect} from "react-redux";
 import './reset.scss';
 
-const App = (props) => props.month ? <MonthView/> : <YearView/>;
+const App = (props) => props.month !== '' ? <MonthView/> : <YearView/>;
 
 function mapStateToProps(state) {
     return {
