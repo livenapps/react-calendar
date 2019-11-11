@@ -1,0 +1,10 @@
+.calendar {
+  & {
+    width: 100%;
+    max-width: 768px;
+    margin: auto;
+    position: relative;
+    font-size: 1rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  }
+}

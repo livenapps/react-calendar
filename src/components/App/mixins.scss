@@ -1,0 +1,46 @@
+@mixin btn {
+  cursor: pointer;
+  user-select: none;
+
+  &--back,
+  &--arrow {
+    transition-duration: $animation-duration;
+    fill: grey;
+
+    &:hover {
+      fill: greenyellow;
+    }
+  }
+
+  &--back {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 15px;
+
+    @media (min-width: $breakpoint-sm) {
+      padding: 25px;
+    }
+  }
+
+  &--arrow {
+    padding: 10px;
+
+    @media (min-width: $breakpoint-sm) {
+      padding: 20px;
+    }
+  }
+}
+
+@mixin title {
+  user-select: none;
+  color: #555;
+  font-size: 2em;
+  font-weight: 700;
+  text-align: center;
+  padding: 10px;
+
+  @media (min-width: $breakpoint-sm) {
+    padding: 20px 56px;
+  }
+}

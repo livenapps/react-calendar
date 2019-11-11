@@ -1,0 +1,73 @@
+@import "../../components/App/animations";
+@import "../../components/App/mixins";
+@import "../../components/App/variables";
+
+.month-view {
+  &__title {
+    @include title();
+  }
+
+  &__btn {
+    @include btn();
+
+    &--arrow {
+      display: block;
+      margin: 0 auto;
+      flex: 0 0 auto;
+    }
+  }
+
+  &__body {
+    display: flex;
+    min-height: 480px;
+  }
+
+  &__month-wrapper {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__days-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    flex: 0 0 auto;
+  }
+
+  &__day-wrapper {
+    width: calc(100% / 7);
+    box-sizing: border-box;
+  }
+
+  &__day,
+  &__data-wrapper {
+    flex: 1 0 50%;
+  }
+
+  &__day {
+    color: $text;
+    background-color: $background-light;
+    //box-shadow: 0 2px 2px 0 $shadow;
+    animation: scaleIn $animation-duration both;
+    cursor: pointer;
+    box-sizing: border-box;
+    text-align: center;
+    line-height: 3em;
+    user-select: none;
+    margin: 2px;
+    border: 1px solid $border-lightgrey;
+    border-radius: 4px;
+
+    &--selected {
+      font-weight: bold;
+    }
+  }
+
+  &__title-date {
+    color: $text-light;
+    text-align: center;
+    font-size: 1.5em;
+  }
+}
