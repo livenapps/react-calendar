@@ -21,8 +21,7 @@ class MonthView extends React.Component {
         this.onTouchStart = this.onTouchStart.bind(this);
         this.onTouchMove = this.onTouchMove.bind(this);
         this.onTouchEnd = this.onTouchEnd.bind(this);
-        this.showPrevMonth = this.showPrevMonth.bind(this);
-        this.showNextMonth = this.showNextMonth.bind(this);
+        this.changeMonth = this.changeMonth.bind(this);
     }
 
     get days(){
@@ -42,7 +41,7 @@ class MonthView extends React.Component {
 
             days.push(<div className={`${this.class}__day-wrapper`} key={i}>
                 <div className={`${this.class}__day ${selectedClassName}`} style={selectedDayStyles}
-                     onClick={()=>{this.props.setDay(i)}}>
+                     onClick={()=>{this.props.setDay(i);}}>
                     {i}
                 </div>
             </div>);
@@ -65,20 +64,16 @@ class MonthView extends React.Component {
         const endY = this.touchCoordinates.endY;
 
         if (startY > endY && startY - endY > MIN_SWIPE) {
-            this.showNextMonth();
+            this.changeMonth(1);
         } else if (Math.abs(endY - startY) > MIN_SWIPE) {
-            this.showPrevMonth();
+            this.changeMonth(-1);
         }
     }
 
-    showNextMonth(){
-        this.date.setUTCMonth(this.date.getUTCMonth() + 1);
-        this.props.setMonth(this.date.getUTCMonth());
-        this.props.setYear(this.date.getUTCFullYear());
-    }
-
-    showPrevMonth(){
-        this.date.setUTCMonth(this.date.getUTCMonth() - 1);
+    changeMonth(n){
+        this.date.setUTCMonth(this.date.getUTCMonth() + n);
+        const currentMonthDays = new Date(Date.UTC(this.date.getUTCFullYear(), this.date.getUTCMonth() + 1, 0)).getUTCDate();
+        this.props.day && this.props.day > currentMonthDays && this.props.setDay(currentMonthDays);
         this.props.setMonth(this.date.getUTCMonth());
         this.props.setYear(this.date.getUTCFullYear());
     }
@@ -88,7 +83,10 @@ class MonthView extends React.Component {
 
         return <section className={`${this.class}`}>
             <TileMenuIcon className={`${this.class}__btn ${this.class}__btn--back`}
-            onClick={this.props.resetMonth}/>
+            onClick={()=>{
+                this.props.resetMonth();
+                this.props.resetDay();
+            }}/>
             <div className={`${this.class}__title`} style={{color: monthColor}}>
                 {MONTHS[this.props.month].name.full}
             </div>
@@ -105,14 +103,14 @@ class MonthView extends React.Component {
                 >
                     <ArrowTop
                         className={`${this.class}__btn ${this.class}__btn--arrow`}
-                        onClick={this.showPrevMonth}
+                        onClick={()=>{this.changeMonth(-1)}}
                     />
                     <div className={`${this.class}__days-wrapper`}>
                         {this.days}
                     </div>
                     <ArrowBottom
                         className={`${this.class}__btn ${this.class}__btn--arrow`}
-                        onClick={this.showNextMonth}
+                        onClick={()=>{this.changeMonth(1)}}
                     />
                 </div>
             </div>
@@ -134,6 +132,7 @@ function mapDispatchToProps(dispatch) {
         setMonth: (month) => dispatch(setMonth(month)),
         setYear: (year) => dispatch(setYear(year)),
         resetMonth: () => dispatch(setMonth('')),
+        resetDay: () => dispatch(setDay('')),
     };
 }
 
