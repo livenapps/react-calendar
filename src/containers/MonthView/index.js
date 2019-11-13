@@ -5,11 +5,11 @@ import {ReactComponent as ArrowTop} from "../MonthView/assets/arrow-top.svg";
 import {ReactComponent as ArrowBottom} from "../MonthView/assets/arrow-bottom.svg";
 import {setMonth, setYear} from "../YearView/actions";
 import {setDay} from "../MonthView/actions";
-import {MONTHS, MIN_SWIPE} from '../../constants';
+import {MONTHS, MIN_SWIPE} from '../App/constants';
 import './styles.scss';
 
 class MonthView extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.class = 'month-view';
         this.touchCoordinates = {
@@ -24,24 +24,24 @@ class MonthView extends React.Component {
         this.changeMonth = this.changeMonth.bind(this);
     }
 
-    get days(){
+    get days() {
         const days = [];
         const monthColor = MONTHS[this.props.month].color;
 
-        for(let i=0; i < new Date(this.props.year, this.props.month).getUTCDay(); i++ ){
+        for (let i = 0; i < new Date(this.props.year, this.props.month).getUTCDay(); i++) {
             days.push(<div className={`${this.class}__day-wrapper`} key={`key-${i}`}/>);
         }
-        for(let i=1; i <= new Date(this.props.year, this.props.month + 1, 0).getDate(); i++ ){
+        for (let i = 1; i <= new Date(this.props.year, this.props.month + 1, 0).getDate(); i++) {
             const isSelected = this.props.day === i ? `${this.class}__day--selected` : '';
             const selectedClassName = this.props.day === i ? `${this.class}__day--selected` : '';
             const selectedDayStyles = isSelected ? {
-                    borderColor: monthColor,
-                    color: monthColor,
-                } : {animationDelay: `${.01 * i}s`};
+                borderColor: monthColor,
+                color: monthColor,
+            } : {animationDelay: `${.01 * i}s`};
 
             days.push(<div className={`${this.class}__day-wrapper`} key={i}>
                 <div className={`${this.class}__day ${selectedClassName}`} style={selectedDayStyles}
-                     onClick={()=>{this.props.setDay(i);}}>
+                     onClick={() => {this.props.setDay(i);}}>
                     {i}
                 </div>
             </div>);
@@ -70,7 +70,7 @@ class MonthView extends React.Component {
         }
     }
 
-    changeMonth(n){
+    changeMonth(n) {
         this.date.setUTCMonth(this.date.getUTCMonth() + n);
         const currentMonthDays = new Date(Date.UTC(this.date.getUTCFullYear(), this.date.getUTCMonth() + 1, 0)).getUTCDate();
         this.props.day && this.props.day > currentMonthDays && this.props.setDay(currentMonthDays);
@@ -78,15 +78,15 @@ class MonthView extends React.Component {
         this.props.setYear(this.date.getUTCFullYear());
     }
 
-    render(){
+    render() {
         const monthColor = MONTHS[this.props.month].color;
 
         return <section className={`${this.class}`}>
             <TileMenuIcon className={`${this.class}__btn ${this.class}__btn--back`}
-            onClick={()=>{
-                this.props.resetMonth();
-                this.props.resetDay();
-            }}/>
+                          onClick={() => {
+                              this.props.resetMonth();
+                              this.props.resetDay();
+                          }}/>
             <div className={`${this.class}__title`} style={{color: monthColor}}>
                 {MONTHS[this.props.month].name.full}
             </div>
@@ -103,14 +103,18 @@ class MonthView extends React.Component {
                 >
                     <ArrowTop
                         className={`${this.class}__btn ${this.class}__btn--arrow`}
-                        onClick={()=>{this.changeMonth(-1)}}
+                        onClick={() => {
+                            this.changeMonth(-1)
+                        }}
                     />
                     <div className={`${this.class}__days-wrapper`}>
                         {this.days}
                     </div>
                     <ArrowBottom
                         className={`${this.class}__btn ${this.class}__btn--arrow`}
-                        onClick={()=>{this.changeMonth(1)}}
+                        onClick={() => {
+                            this.changeMonth(1)
+                        }}
                     />
                 </div>
             </div>
