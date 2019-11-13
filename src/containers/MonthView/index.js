@@ -72,10 +72,19 @@ class MonthView extends React.Component {
 
     changeMonth(n) {
         this.date.setUTCMonth(this.date.getUTCMonth() + n);
-        const currentMonthDays = new Date(Date.UTC(this.date.getUTCFullYear(), this.date.getUTCMonth() + 1, 0)).getUTCDate();
+
+        const date = [this.date.getUTCFullYear(), this.date.getUTCMonth() + 1, 0];
+        const currentMonthDays = new Date(Date.UTC(...date)).getUTCDate();
+
         this.props.day && this.props.day > currentMonthDays && this.props.setDay(currentMonthDays);
         this.props.setMonth(this.date.getUTCMonth());
         this.props.setYear(this.date.getUTCFullYear());
+    }
+
+    htmlToJSX(html){
+        const JSX = '';
+
+        return JSX;
     }
 
     render() {
@@ -95,6 +104,7 @@ class MonthView extends React.Component {
                     {this.props.day && <h2 className={`${this.class}__title-date`}>
                         {`${this.props.day}/${this.props.month + 1}/${this.props.year}`}
                     </h2>}
+                    {this.htmlToJSX(this.props.data)}
                 </div>
                 <div className={`${this.class}__month-wrapper`}
                      onTouchStart={this.onTouchStart}

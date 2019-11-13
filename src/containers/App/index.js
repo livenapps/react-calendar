@@ -2,17 +2,22 @@ import React from "react";
 import YearView from "../YearView";
 import MonthView from "../MonthView";
 import {connect} from "react-redux";
-import './style.scss';
-import './reset.scss';
 import {setDay} from "../MonthView/actions";
 import {setMonth, setYear} from "../YearView/actions";
-import {resetDate} from "./actions";
+import './style.scss';
+import './reset.scss';
 
 class App extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+
     componentDidMount() {
-        const initialDate = this.props.date;
+        const initialDate = this.props.initialDate;
 
         if (initialDate) {
+            const errorMsg = 'Incorrect date format. Use Date object or string in format "year-month-day"';
+
             if (initialDate instanceof Date) {
                 this.props.setYear(initialDate.getUTCFullYear());
                 this.props.setMonth(initialDate.getUTCMonth());
@@ -23,7 +28,7 @@ class App extends React.Component {
                     const date = new Date(Date.UTC(year, month - 1, day));
 
                     if (year !== date.getUTCFullYear() || month - 1 !== date.getUTCMonth() || day !== date.getUTCDate()) {
-                        throw new Error('Incorrect date format. Use string in format "year-month-day"');
+                        throw new Error(errorMsg);
                     } else {
                         this.props.setYear(year);
                         this.props.setMonth(month - 1);
@@ -33,14 +38,15 @@ class App extends React.Component {
                     console.error(e);
                 }
             } else {
-                throw new Error('Incorrect date format. Use Date object or string in format "year-month-day"');
+                throw new Error(errorMsg);
             }
         }
-
     }
 
     render() {
-        return <div className='calendar'>{this.props.month !== '' ? <MonthView/> : <YearView/>}</div>;
+        return <div className='calendar'>
+            {this.props.month !== '' ? <MonthView data={this.props.data}/> : <YearView/>}
+        </div>;
     }
 }
 
@@ -55,7 +61,6 @@ function mapDispatchToProps(dispatch) {
         setDay: (day) => dispatch(setDay(day)),
         setMonth: (month) => dispatch(setMonth(month)),
         setYear: (year) => dispatch(setYear(year)),
-        resetDate: (date) => dispatch(resetDate(date)),
     };
 }
 

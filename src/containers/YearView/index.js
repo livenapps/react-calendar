@@ -34,27 +34,23 @@ class YearView extends React.Component {
         const endX = this.touchCoordinates.endX;
 
         if (startX > endX && startX - endX > MIN_SWIPE) {
-            this.props.nextYear(this.props.year);
+            this.props.setYear(this.props.year + 1);
 
         } else if (Math.abs(endX - startX) > MIN_SWIPE) {
-            this.props.prevYear(this.props.year);
+            this.props.setYear(this.props.year - 1);
         }
     }
 
     render() {
-        return <section className={`${this.class}`}
-                        onTouchStart={this.onTouchStart}
-                        onTouchMove={this.onTouchMove}
-                        onTouchEnd={this.onTouchEnd}
-        >
+        return <section className={`${this.class}`} onTouchStart={this.onTouchStart}
+                        onTouchMove={this.onTouchMove} onTouchEnd={this.onTouchEnd}>
             <div className={`${this.class}__title`}>
                 {this.props.year}
             </div>
             <div className={`${this.class}__body`}>
-                <ArrowLeft
-                    className={`${this.class}__btn ${this.class}__btn--arrow`}
-                    onClick={() => {
-                        this.props.prevYear(this.props.year);
+                <ArrowLeft className={`${this.class}__btn ${this.class}__btn--arrow`} onClick={() => {
+                        this.props.setYear(this.props.year - 1);
+                        this.props.onChangeYear && this.props.onChangeYear(this.props.year - 1);
                     }}
                 />
                 <div className={`${this.class}__wrapper`}>
@@ -65,10 +61,9 @@ class YearView extends React.Component {
                         > {el.name.short} </div>
                     )}
                 </div>
-                <ArrowRight
-                    className={`${this.class}__btn ${this.class}__btn--arrow`}
-                    onClick={() => {
-                        this.props.nextYear(this.props.year)
+                <ArrowRight className={`${this.class}__btn ${this.class}__btn--arrow`} onClick={() => {
+                        this.props.setYear(this.props.year + 1);
+                        this.props.onChangeYear && this.props.onChangeYear(this.props.year + 1);
                     }}
                 />
             </div>
@@ -85,8 +80,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        prevYear: (year) => dispatch(setYear(year - 1)),
-        nextYear: (year) => dispatch(setYear(year + 1)),
+        setYear: (year) => dispatch(setYear(year)),
         setMonth: (month) => {dispatch(setMonth(month))},
     };
 }

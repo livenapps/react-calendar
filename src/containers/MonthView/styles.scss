@@ -70,8 +70,12 @@
 
   &__title-date {
     animation: fadeIn $animation-duration both;
+    border-bottom: 1px solid $border-light;
     color: $text-light;
     text-align: center;
     font-size: 1.5em;
+    padding: 1em .5em .5em;
+    width: 40%;
+    margin: auto;
   }
 }
