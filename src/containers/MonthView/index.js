@@ -3,8 +3,7 @@ import {connect} from "react-redux";
 import {ReactComponent as TileMenuIcon} from "../YearView/assets/tile-menu.svg";
 import {ReactComponent as ArrowTop} from "../MonthView/assets/arrow-top.svg";
 import {ReactComponent as ArrowBottom} from "../MonthView/assets/arrow-bottom.svg";
-import {setMonth, setYear} from "../YearView/actions";
-import {setDay} from "../MonthView/actions";
+import {setDate, setDay, setMonth, setYear} from "../App/actions";
 import {MONTHS, MIN_SWIPE} from '../App/constants';
 import './styles.scss';
 
@@ -76,15 +75,11 @@ class MonthView extends React.Component {
         const date = [this.date.getUTCFullYear(), this.date.getUTCMonth() + 1, 0];
         const currentMonthDays = new Date(Date.UTC(...date)).getUTCDate();
 
-        this.props.day && this.props.day > currentMonthDays && this.props.setDay(currentMonthDays);
-        this.props.setMonth(this.date.getUTCMonth());
-        this.props.setYear(this.date.getUTCFullYear());
-    }
-
-    htmlToJSX(html){
-        const JSX = '';
-
-        return JSX;
+        this.props.setDate({
+            day: this.props.day ? Math.min(currentMonthDays, this.props.day) : '',
+            month: this.date.getUTCMonth(),
+            year: this.date.getUTCFullYear(),
+        });
     }
 
     render() {
@@ -104,7 +99,7 @@ class MonthView extends React.Component {
                     {this.props.day && <h2 className={`${this.class}__title-date`}>
                         {`${this.props.day}/${this.props.month + 1}/${this.props.year}`}
                     </h2>}
-                    {this.htmlToJSX(this.props.data)}
+                    {this.props.data}
                 </div>
                 <div className={`${this.class}__month-wrapper`}
                      onTouchStart={this.onTouchStart}
@@ -134,14 +129,15 @@ class MonthView extends React.Component {
 
 function mapStateToProps(state) {
     return {
-        year: state.yearViewReducer.year,
-        month: state.yearViewReducer.month,
-        day: state.monthViewReducer.day,
+        year: state.calendarReducer.year,
+        month: state.calendarReducer.month,
+        day: state.calendarReducer.day,
     };
 }
 
 function mapDispatchToProps(dispatch) {
     return {
+        setDate: (day) => dispatch(setDate(day)),
         setDay: (day) => dispatch(setDay(day)),
         setMonth: (month) => dispatch(setMonth(month)),
         setYear: (year) => dispatch(setYear(year)),

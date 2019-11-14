@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from "react-redux";
 import {ReactComponent as ArrowLeft} from './assets/arrow-left.svg';
 import {ReactComponent as ArrowRight} from './assets/arrow-right.svg';
-import {setYear, setMonth} from "./actions";
+import {setYear, setMonth} from "../App/actions";
 import {MONTHS, MIN_SWIPE} from '../App/constants';
 import './styles.scss';
 
@@ -35,7 +35,6 @@ class YearView extends React.Component {
 
         if (startX > endX && startX - endX > MIN_SWIPE) {
             this.props.setYear(this.props.year + 1);
-
         } else if (Math.abs(endX - startX) > MIN_SWIPE) {
             this.props.setYear(this.props.year - 1);
         }
@@ -73,10 +72,9 @@ class YearView extends React.Component {
 
 function mapStateToProps(state) {
     return {
-        year: state.yearViewReducer.year,
+        year: state.calendarReducer.year,
     };
 }
-
 
 function mapDispatchToProps(dispatch) {
     return {

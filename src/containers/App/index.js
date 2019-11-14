@@ -2,8 +2,7 @@ import React from "react";
 import YearView from "../YearView";
 import MonthView from "../MonthView";
 import {connect} from "react-redux";
-import {setDay} from "../MonthView/actions";
-import {setMonth, setYear} from "../YearView/actions";
+import {setDate} from "./actions";
 import './style.scss';
 import './reset.scss';
 
@@ -19,9 +18,11 @@ class App extends React.Component {
             const errorMsg = 'Incorrect date format. Use Date object or string in format "year-month-day"';
 
             if (initialDate instanceof Date) {
-                this.props.setYear(initialDate.getUTCFullYear());
-                this.props.setMonth(initialDate.getUTCMonth());
-                this.props.setDay(initialDate.getUTCDate());
+                this.props.setDate({
+                    day: initialDate.getUTCDate(),
+                    month: initialDate.getUTCMonth(),
+                    year: initialDate.getUTCFullYear(),
+                });
             } else if (typeof initialDate === 'string') {
                 try {
                     const [year, month, day] = initialDate.split('-').map(el => Number(el));
@@ -30,9 +31,11 @@ class App extends React.Component {
                     if (year !== date.getUTCFullYear() || month - 1 !== date.getUTCMonth() || day !== date.getUTCDate()) {
                         throw new Error(errorMsg);
                     } else {
-                        this.props.setYear(year);
-                        this.props.setMonth(month - 1);
-                        this.props.setDay(day);
+                        this.props.setDate({
+                            day,
+                            month: month - 1,
+                            year,
+                        });
                     }
                 } catch (e) {
                     console.error(e);
@@ -52,15 +55,13 @@ class App extends React.Component {
 
 function mapStateToProps(state) {
     return {
-        month: state.yearViewReducer.month,
+        month: state.calendarReducer.month,
     };
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        setDay: (day) => dispatch(setDay(day)),
-        setMonth: (month) => dispatch(setMonth(month)),
-        setYear: (year) => dispatch(setYear(year)),
+        setDate: (date) => dispatch(setDate(date)),
     };
 }
 

@@ -11,3 +11,17 @@ export function setMonth(params) {
         payload: params
     }
 }
+
+export function setDay(params) {
+    return {
+        type: 'SET_DAY',
+        payload: params
+    }
+}
+
+export function setDate(params) {
+    return {
+        type: 'SET_DATE',
+        payload: params
+    }
+}
