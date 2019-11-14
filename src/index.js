@@ -5,18 +5,22 @@ import {Provider} from 'react-redux';
 import {combineReducers} from "redux";
 import calendarReducer from './containers/App/reducer';
 import App from './containers/App';
-import Sample from './components/SampleData'
 import * as serviceWorker from './serviceWorker';
 
 const store = createStore(combineReducers({calendarReducer}));
 
+/**
+ * Date picker
+ *
+ * @param {string || object} initialDate - 'Year-Month-Day' || object Date
+ * @param {function} onChange - callback, @param: current date object
+ * @param {component} sidebarData - date on month view sidebar
+ * @returns {component}
+ */
+
 ReactDOM.render(
     <Provider store={store}>
-        <App
-            initialDate={''}  // String {Year-Month-Day} || Object {Date}
-            onChange={''}               // Function {@param: current day of month}
-            sidebarData={ <Sample/> }   //Sidebar data
-        />
+        <App initialDate={''} onChange={''} sidebarData={''} />
     </Provider>,
     document.getElementById('react-calendar'));
 
