@@ -12,15 +12,17 @@ const store = createStore(combineReducers({calendarReducer}));
 /**
  * Date picker
  *
- * @param {string || object} initialDate - 'Year-Month-Day' || object Date
- * @param {function} onChange - callback, @param: current date object
- * @param {component} sidebarData - date on month view sidebar
  * @returns {component}
+ * @param date
  */
 
 ReactDOM.render(
     <Provider store={store}>
-        <App initialDate={''} onChange={''} sidebarData={''} />
+        <App initialDate={''}
+             onChange={''}
+             sidebarData={''}
+             store={store}
+        />
     </Provider>,
     document.getElementById('react-calendar'));
 

@@ -9,6 +9,10 @@ import './reset.scss';
 class App extends React.Component {
     constructor(props) {
         super(props);
+
+        props.store.subscribe(()=>{
+            props.onChange(props.store.getState().calendarReducer);
+        });
     }
 
     componentDidMount() {
