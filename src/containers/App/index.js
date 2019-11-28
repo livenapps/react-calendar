@@ -10,7 +10,7 @@ class App extends React.Component {
     constructor(props) {
         super(props);
 
-        props.store.subscribe(()=>{
+        props.store && typeof props.onChange === 'function' && props.store.subscribe(()=>{
             props.onChange(props.store.getState().calendarReducer);
         });
     }
