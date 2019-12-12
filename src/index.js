@@ -18,10 +18,11 @@ const store = createStore(combineReducers({calendarReducer}));
 
 ReactDOM.render(
     <Provider store={store}>
-        <App initialDate={''}
+        <App initialDate={new Date()}
              onChange={''}
              sidebarData={''}
              store={store}
+             title={'Start date'}
         />
     </Provider>,
     document.getElementById('react-calendar'));

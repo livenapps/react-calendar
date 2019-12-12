@@ -3,8 +3,12 @@
 @import "../App/variables";
 
 .month-view {
+
   &__title {
     @include title();
+
+    display: flex;
+    justify-content: space-between;
   }
 
   &__btn {
@@ -12,18 +16,11 @@
 
     &--arrow {
       display: block;
-      margin: 0 auto;
       flex: 0 0 auto;
     }
   }
 
-  &__body {
-    display: flex;
-    min-height: 480px;
-  }
-
   &__month-wrapper {
-    width: 50%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -44,10 +41,6 @@
   &__day,
   &__data-wrapper {
     flex: 1 0 50%;
-  }
-
-  &__data-wrapper {
-    animation: fadeIn $animation-duration both;
   }
 
   &__day {

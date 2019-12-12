@@ -3,6 +3,10 @@
 @import "../App/variables";
 
 .year-view {
+  & {
+    margin: auto;
+  }
+
   &__month {
     animation: scaleIn $animation-duration both;
     cursor: pointer;

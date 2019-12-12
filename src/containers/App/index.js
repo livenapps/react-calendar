@@ -51,7 +51,10 @@ class App extends React.Component {
   }
 
   render() {
-    return this.props.month !== '' ? <MonthView data={this.props.data}/> : <YearView/>;
+    return <React.Fragment>
+      <h1 className="calendar__title">{this.props.title}</h1>
+      {this.props.month !== '' ? <MonthView data={this.props.data}/> : <YearView/>}
+    </React.Fragment>;
   }
 }
 
