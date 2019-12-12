@@ -1,26 +1,24 @@
 {
   "files": {
-    "main.css": "/react-calendar/static/css/main.183434ce.chunk.css",
-    "main.js": "/react-calendar/static/js/main.bac2d0e0.chunk.js",
-    "main.js.map": "/react-calendar/static/js/main.bac2d0e0.chunk.js.map",
+    "main.css": "/react-calendar/static/css/main.ae7bde22.chunk.css",
+    "main.js": "/react-calendar/static/js/main.4f2e7bd7.chunk.js",
+    "main.js.map": "/react-calendar/static/js/main.4f2e7bd7.chunk.js.map",
     "runtime-main.js": "/react-calendar/static/js/runtime-main.88d22331.js",
     "runtime-main.js.map": "/react-calendar/static/js/runtime-main.88d22331.js.map",
-    "static/js/2.2163c24b.chunk.js": "/react-calendar/static/js/2.2163c24b.chunk.js",
-    "static/js/2.2163c24b.chunk.js.map": "/react-calendar/static/js/2.2163c24b.chunk.js.map",
+    "static/js/2.0b18f930.chunk.js": "/react-calendar/static/js/2.0b18f930.chunk.js",
+    "static/js/2.0b18f930.chunk.js.map": "/react-calendar/static/js/2.0b18f930.chunk.js.map",
     "index.html": "/react-calendar/index.html",
-    "precache-manifest.52f2f13ac10df9b1b681b0e051db27b5.js": "/react-calendar/precache-manifest.52f2f13ac10df9b1b681b0e051db27b5.js",
+    "precache-manifest.75f0ef743adbec218879cadbafd70f80.js": "/react-calendar/precache-manifest.75f0ef743adbec218879cadbafd70f80.js",
     "service-worker.js": "/react-calendar/service-worker.js",
-    "static/css/main.183434ce.chunk.css.map": "/react-calendar/static/css/main.183434ce.chunk.css.map",
-    "static/media/arrow-bottom.cf82dccc.svg": "/react-calendar/static/media/arrow-bottom.cf82dccc.svg",
+    "static/css/main.ae7bde22.chunk.css.map": "/react-calendar/static/css/main.ae7bde22.chunk.css.map",
     "static/media/arrow-left.875e6086.svg": "/react-calendar/static/media/arrow-left.875e6086.svg",
     "static/media/arrow-right.2fa3a844.svg": "/react-calendar/static/media/arrow-right.2fa3a844.svg",
-    "static/media/arrow-top.74831de2.svg": "/react-calendar/static/media/arrow-top.74831de2.svg",
     "static/media/tile-menu.391652ea.svg": "/react-calendar/static/media/tile-menu.391652ea.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.88d22331.js",
-    "static/js/2.2163c24b.chunk.js",
-    "static/css/main.183434ce.chunk.css",
-    "static/js/main.bac2d0e0.chunk.js"
+    "static/js/2.0b18f930.chunk.js",
+    "static/css/main.ae7bde22.chunk.css",
+    "static/js/main.4f2e7bd7.chunk.js"
   ]
 }

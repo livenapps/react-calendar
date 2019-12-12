@@ -1,27 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "3d62a3f5586187d9b4ebade3f2e796a2",
+    "revision": "b5c3b2e6ec573946d20a0e13b1c70a51",
     "url": "/react-calendar/index.html"
   },
   {
-    "revision": "8f63072803e20e928b58",
-    "url": "/react-calendar/static/css/main.183434ce.chunk.css"
+    "revision": "2536a387da29967dc063",
+    "url": "/react-calendar/static/css/main.ae7bde22.chunk.css"
   },
   {
-    "revision": "1b4f3d6400247974014f",
-    "url": "/react-calendar/static/js/2.2163c24b.chunk.js"
+    "revision": "8fb72f1cbd5ae1eb3503",
+    "url": "/react-calendar/static/js/2.0b18f930.chunk.js"
   },
   {
-    "revision": "8f63072803e20e928b58",
-    "url": "/react-calendar/static/js/main.bac2d0e0.chunk.js"
+    "revision": "2536a387da29967dc063",
+    "url": "/react-calendar/static/js/main.4f2e7bd7.chunk.js"
   },
   {
     "revision": "e3d8bb547d6ce18b73ac",
     "url": "/react-calendar/static/js/runtime-main.88d22331.js"
-  },
-  {
-    "revision": "cf82dccccff1190189b8523a22caf851",
-    "url": "/react-calendar/static/media/arrow-bottom.cf82dccc.svg"
   },
   {
     "revision": "875e6086755f2497fa4f2e9cb90a640d",
@@ -30,10 +26,6 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "2fa3a8445104f81ec7854e901a9efdaf",
     "url": "/react-calendar/static/media/arrow-right.2fa3a844.svg"
-  },
-  {
-    "revision": "74831de2253a316c65e58750ef89440f",
-    "url": "/react-calendar/static/media/arrow-top.74831de2.svg"
   },
   {
     "revision": "391652eaa4b5c7d12d413cf259ac5494",
