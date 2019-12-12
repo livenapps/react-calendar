@@ -93,14 +93,21 @@ class MonthView extends React.Component {
                       this.props.resetMonth();
                       this.props.resetDay();
                     }}/>
-      <div className={`${this.class}__title`} style={{color: monthColor}}>
+      <div className={`${this.class}__title-wrapper`}>
         <ArrowLeft
           className={`${this.class}__btn ${this.class}__btn--arrow`}
           onClick={() => {
             this.changeMonth(-1)
           }}
         />
-        {MONTHS[this.props.month].name.full}
+        <div>
+          <div className={`${this.class}__title`} style={{color: monthColor}}>
+            {MONTHS[this.props.month].name.full}
+          </div>
+          <div className={`${this.class}__subtitle`}>
+            <span className={`${this.class}__year`}>{this.props.year}</span>
+          </div>
+        </div>
         <ArrowRight
           className={`${this.class}__btn ${this.class}__btn--arrow`}
           onClick={() => {
@@ -108,6 +115,7 @@ class MonthView extends React.Component {
           }}
         />
       </div>
+
       <div className={`${this.class}__month-wrapper`}
            onTouchStart={this.onTouchStart}
            onTouchMove={this.onTouchMove}

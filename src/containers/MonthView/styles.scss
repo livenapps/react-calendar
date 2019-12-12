@@ -3,12 +3,27 @@
 @import "../App/variables";
 
 .month-view {
+  &__title-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
   &__title {
     @include title();
 
-    display: flex;
-    justify-content: space-between;
+    position: relative;
+  }
+
+  &__subtitle {
+    text-align: center;
+  }
+
+  &__year {
+    color: $border-lightgrey;
+    display: inline-block;
+    padding: .5em 1em;
+    border-top: 1px solid $border-lightgrey;
   }
 
   &__btn {

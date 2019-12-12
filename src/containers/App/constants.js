@@ -32,7 +32,7 @@ export const MONTHS = [
             short: 'May',
             full: 'May',
         },
-        color: '#91ff35',
+        color: '#ade470',
     },
     {
         name: {
