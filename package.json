@@ -1,6 +1,6 @@
 {
   "homepage": "http://mashuxa.github.io/react-date-picker",
-  "name": "react-date-picker",
+  "name": "@livenapps/react-date-picker",
   "version": "1.0.0",
   "author": {
     "name": "livenapps.com"
