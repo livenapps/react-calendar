@@ -1,16 +1,11 @@
-@import "../App/animations";
-@import "../App/mixins";
-@import "../App/variables";
+@import "../App/styles/animations";
+@import "../App/styles/mixins";
+@import "../App/styles/variables";
 
 .year-view {
-  & {
-    margin: auto;
-  }
-
   &__month {
     animation: scaleIn $animation-duration both;
     cursor: pointer;
-    user-select: none;
     font-size: 1.2em;
     color: #fff;
     flex-shrink: 0;

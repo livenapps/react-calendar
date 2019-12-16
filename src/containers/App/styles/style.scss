@@ -1,28 +1,30 @@
-@import "variables";
+@import "./variables";
 
-html,
-body {
-  height: 100%;
-  display: flex;
-  overflow-y: auto;
-  margin: auto;
-  max-width: 400px;
-}
-
-.calendar {
+.date-picker {
   & {
     display: flex;
     flex-direction: column;
+    max-width: 768px;
+    margin: auto;
     position: relative;
     font-size: 1rem;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    user-select: none;
   }
 
   &__title {
     color: $text;
-    text-align: center;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
     font-size: 18px;
-    margin: 0;
+    font-weight: 700;
+    margin: 0 auto;
     padding: 1em 0 0;
+    min-width: 200px;
+  }
+
+  &__title-selected-date {
+    color: rgba($text, .75);
   }
 }

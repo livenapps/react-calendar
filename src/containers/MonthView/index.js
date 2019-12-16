@@ -105,7 +105,10 @@ class MonthView extends React.Component {
             {MONTHS[this.props.month].name.full}
           </div>
           <div className={`${this.class}__subtitle`}>
-            <span className={`${this.class}__year`}>{this.props.year}</span>
+            <span className={`${this.class}__year`} onClick={() => {
+              this.props.resetMonth();
+              this.props.resetDay();
+            }}>{this.props.year}</span>
           </div>
         </div>
         <ArrowRight
@@ -131,9 +134,9 @@ class MonthView extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    year: state.calendarReducer.year,
-    month: state.calendarReducer.month,
-    day: state.calendarReducer.day,
+    year: state.datePickerReducer.year,
+    month: state.datePickerReducer.month,
+    day: state.datePickerReducer.day,
   };
 }
 

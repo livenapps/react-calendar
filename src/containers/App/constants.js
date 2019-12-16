@@ -84,5 +84,5 @@ export const MONTHS = [
         color: '#834bff',
     }
 ];
-export const ROOT_CLASS = 'calendar';
+export const ROOT_CLASS = 'date-picker';
 export const MIN_SWIPE = 100;

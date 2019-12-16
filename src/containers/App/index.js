@@ -3,15 +3,15 @@ import YearView from "../YearView";
 import MonthView from "../MonthView";
 import {connect} from "react-redux";
 import {setDate} from "./actions";
-import './style.scss';
-import './reset.scss';
+import {ROOT_CLASS, MONTHS} from "../App/constants";
+import './styles/style.scss';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
 
     props.store && typeof props.onChange === 'function' && props.store.subscribe(() => {
-      props.onChange(props.store.getState().calendarReducer);
+      props.onChange(props.store.getState().datePickerReducer);
     });
   }
 
@@ -51,8 +51,15 @@ class App extends React.Component {
   }
 
   render() {
+    const {day, month, year} = this.props;
+
     return <React.Fragment>
-      <h1 className="calendar__title">{this.props.title}</h1>
+      <h2 className={`${ROOT_CLASS}__title`}>
+        <span>{this.props.title}: </span>
+        <span className={`${ROOT_CLASS}__title-selected-date`}>
+          {`${day ? day : '  '} ${month ? MONTHS[ month].name.short : '   '} ${year ? year : '    '}`}
+        </span>
+      </h2>
       {this.props.month !== '' ? <MonthView data={this.props.data}/> : <YearView/>}
     </React.Fragment>;
   }
@@ -60,7 +67,9 @@ class App extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    month: state.calendarReducer.month,
+    day: state.datePickerReducer.day,
+    month: state.datePickerReducer.month,
+    year: state.datePickerReducer.year,
   };
 }
 

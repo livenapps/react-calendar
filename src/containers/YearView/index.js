@@ -70,7 +70,7 @@ class YearView extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    year: state.calendarReducer.year,
+    year: state.datePickerReducer.year,
   };
 }
 

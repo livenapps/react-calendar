@@ -1,6 +1,5 @@
 @mixin btn {
   cursor: pointer;
-  user-select: none;
 
   &--back,
   &--arrow {
@@ -32,7 +31,6 @@
 }
 
 @mixin title {
-  user-select: none;
   color: #555;
   font-size: 2em;
   font-weight: 700;
