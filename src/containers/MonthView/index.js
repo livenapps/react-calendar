@@ -1,10 +1,10 @@
 import React from 'react';
 import {connect} from "react-redux";
-import {ReactComponent as TileMenuIcon} from "../App/assets/tile-menu.svg";
-import {ReactComponent as ArrowLeft} from "../App/assets/arrow-left.svg";
-import {ReactComponent as ArrowRight} from "../App/assets/arrow-right.svg";
-import {setDate, setDay, setMonth, setYear} from "../App/actions";
-import {MONTHS, MIN_SWIPE} from '../App/constants';
+import {ReactComponent as TileMenuIcon} from "../DatePicker/assets/tile-menu.svg";
+import {ReactComponent as ArrowLeft} from "../DatePicker/assets/arrow-left.svg";
+import {ReactComponent as ArrowRight} from "../DatePicker/assets/arrow-right.svg";
+import {setDate, setDay, setMonth, setYear} from "../../actions";
+import {MONTHS, MIN_SWIPE} from '../../constants';
 import './styles.scss';
 
 class MonthView extends React.Component {

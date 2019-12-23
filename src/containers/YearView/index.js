@@ -1,9 +1,9 @@
 import React from 'react';
 import {connect} from "react-redux";
-import {ReactComponent as ArrowLeft} from '../App/assets/arrow-left.svg';
-import {ReactComponent as ArrowRight} from '../App/assets/arrow-right.svg';
-import {setYear, setMonth} from "../App/actions";
-import {MONTHS, MIN_SWIPE} from '../App/constants';
+import {ReactComponent as ArrowLeft} from '../DatePicker/assets/arrow-left.svg';
+import {ReactComponent as ArrowRight} from '../DatePicker/assets/arrow-right.svg';
+import {setYear, setMonth} from "../../actions";
+import {MONTHS, MIN_SWIPE} from '../../constants';
 import './styles.scss';
 
 class YearView extends React.Component {

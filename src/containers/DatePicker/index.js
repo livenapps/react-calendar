@@ -2,11 +2,11 @@ import React from "react";
 import YearView from "../YearView";
 import MonthView from "../MonthView";
 import {connect} from "react-redux";
-import {setDate} from "./actions";
-import {ROOT_CLASS, MONTHS} from "../App/constants";
+import {setDate} from "../../actions";
+import {ROOT_CLASS, MONTHS} from "../../constants";
 import './styles/style.scss';
 
-class App extends React.Component {
+class DatePicker extends React.Component {
   constructor(props) {
     super(props);
 
@@ -79,4 +79,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(DatePicker);

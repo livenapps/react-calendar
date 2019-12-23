@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import {createStore} from 'redux';
 import {Provider} from 'react-redux';
 import {combineReducers} from "redux";
-import datePickerReducer from './containers/App/reducer';
-import App from './containers/App';
+import datePickerReducer from './reducer';
+import DatePicker from './containers/DatePicker';
 import * as serviceWorker from './serviceWorker';
 
 const store = createStore(combineReducers({datePickerReducer}));
@@ -18,7 +18,7 @@ const store = createStore(combineReducers({datePickerReducer}));
 
 ReactDOM.render(
     <Provider store={store}>
-        <App initialDate={new Date()}
+        <DatePicker initialDate={new Date()}
              onChange={''}
              store={store}
              title={'Start date'}
@@ -27,3 +27,5 @@ ReactDOM.render(
     document.getElementById('react-date-picker'));
 
 serviceWorker.unregister();
+
+export {DatePicker, datePickerReducer};
