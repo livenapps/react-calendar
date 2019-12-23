@@ -1,7 +1,7 @@
 {
   "homepage": "http://mashuxa.github.io/react-date-picker",
   "name": "@livenapps/react-date-picker",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": {
     "name": "livenapps.com"
   },
@@ -70,7 +70,7 @@
     "test": "node scripts/test.js",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "public": "NODE_ENV=production npx babel src/index.js --out-file lib/index.js"
+    "public": "NODE_ENV=production npx babel src/containers/App/index.js --out-file lib/index.js"
   },
   "eslintConfig": {
     "extends": "react-app"
