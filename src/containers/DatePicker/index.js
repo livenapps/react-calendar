@@ -57,7 +57,7 @@ class DatePicker extends React.Component {
       <h2 className={`${ROOT_CLASS}__title`}>
         <span>{this.props.title}: </span>
         <span className={`${ROOT_CLASS}__title-selected-date`}>
-          {`${day ? day : '  '} ${month ? MONTHS[ month].name.short : '   '} ${year ? year : '    '}`}
+          {`${day ? day : '  '} ${month !== '' ? MONTHS[month].name.short : '   '} ${year ? year : '    '}`}
         </span>
       </h2>
       {this.props.month !== '' ? <MonthView data={this.props.data}/> : <YearView/>}
