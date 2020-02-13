@@ -1,23 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "fa4cf5bc481b9248a43cdb0ea5a12a63",
+    "revision": "470f3fce672619652ce999287787edda",
     "url": "/react-date-picker/index.html"
   },
   {
-    "revision": "5bb3094f7a65b3ef5b45",
+    "revision": "51a5a1490457f4754e94",
     "url": "/react-date-picker/static/css/main.e36bf35e.chunk.css"
   },
   {
-    "revision": "42ea16ddd6cc9e9814f0",
-    "url": "/react-date-picker/static/js/2.6bb3a27d.chunk.js"
+    "revision": "4c7bf9b1c7db1fbbd608",
+    "url": "/react-date-picker/static/js/2.23af0cd1.chunk.js"
   },
   {
-    "revision": "5bb3094f7a65b3ef5b45",
-    "url": "/react-date-picker/static/js/main.307327ae.chunk.js"
+    "revision": "928d7b5eb39d16fe9a880722c974b51e",
+    "url": "/react-date-picker/static/js/2.23af0cd1.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "1a28264981a8059b00d4",
-    "url": "/react-date-picker/static/js/runtime-main.6bed5215.js"
+    "revision": "51a5a1490457f4754e94",
+    "url": "/react-date-picker/static/js/main.3184399b.chunk.js"
+  },
+  {
+    "revision": "1edb2a77c425904e8ff0",
+    "url": "/react-date-picker/static/js/runtime-main.62bfff7c.js"
   },
   {
     "revision": "413582574a620b8743663090a673aeb4",
