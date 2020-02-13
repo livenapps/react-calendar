@@ -1,6 +1,5 @@
 @mixin btn {
   cursor: pointer;
-  user-select: none;
 
   &--back,
   &--arrow {
@@ -13,10 +12,9 @@
   }
 
   &--back {
-    position: absolute;
-    top: 0;
-    right: 0;
+    margin-left: auto;
     padding: 15px;
+    display: block;
 
     @media (min-width: $breakpoint-sm) {
       padding: 25px;
@@ -33,14 +31,9 @@
 }
 
 @mixin title {
-  user-select: none;
   color: #555;
   font-size: 2em;
   font-weight: 700;
   text-align: center;
   padding: 10px;
-
-  @media (min-width: $breakpoint-sm) {
-    padding: 20px 56px;
-  }
 }

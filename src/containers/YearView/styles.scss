@@ -1,12 +1,11 @@
-@import "../App/animations";
-@import "../App/mixins";
-@import "../App/variables";
+@import "../DatePicker/styles/animations";
+@import "../DatePicker/styles/mixins";
+@import "../DatePicker/styles/variables";
 
 .year-view {
   &__month {
     animation: scaleIn $animation-duration both;
     cursor: pointer;
-    user-select: none;
     font-size: 1.2em;
     color: #fff;
     flex-shrink: 0;
@@ -24,10 +23,9 @@
 
   &__title {
     @include title();
-  }
 
-  &__body {
     display: flex;
+    justify-content: space-between;
     align-items: center;
   }
 
