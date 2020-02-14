@@ -65,9 +65,8 @@
     "workbox-webpack-plugin": "4.3.1"
   },
   "scripts": {
-    "start": "node scripts/start.js",
-    "build": "node scripts/build.js",
-    "lib": "babel src/node_modules --out-dir lib --copy-files",
+    "start": "node scripts/start.js --mode=development",
+    "build": "node scripts/build.js --mode=development",
     "test": "node scripts/test.js",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
